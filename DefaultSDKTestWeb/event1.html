@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/event1.css">
+    <title>event2</title>
+</head>
+
+<!-- prod서버 -->
+<script>
+    !function (e, r) { if (void 0 !== e && !e.adbrix) { var o = { queue: [] }, t = navigator.userAgent.toLowerCase(), c = r.createElement("script"), a = "Netscape" === navigator.appName && -1 !== navigator.userAgent.search("Trident") || -1 !== t.indexOf("msie") ? "abx-web-sdk.ie.min.js" : "abx-web-sdk.min.js"; c.type = "text/javascript", c.async = !0, c.src = "//static.adbrix.io/web-sdk/latest/" + a, c.onload = function () { e.adbrix.runQueuedFunctions ? e.adbrix.runQueuedFunctions() : console.log("[adbrix] Error: could not load SDK") }; var i = r.getElementsByTagName("script")[0]; i.parentNode.insertBefore(c, i);["init", "onInitialized", "login", "getUserId", "logout", "userProperty.get", "userProperty.getAll", "userProperty.addOrUpdate", "userProperty.remove", "userProperty.removes", "common.signUp", "common.invite", "common.useCredit", "common.purchase", "event.send", "debug.traceListener", "commerceAttr.categories", "commerceAttr.product", "commerce.viewHome", "commerce.categoryView", "commerce.productView", "commerce.addToCart", "commerce.addToWishList", "commerce.reviewOrder", "commerce.refund", "commerce.search", "commerce.share", "commerce.listView", "commerce.cartView", "commerce.paymentInfoAdded", "game.tutorialComplete", "game.characterCreated", "game.stageCleared", "game.levelAchieved", "push.isPushEnabled", "push.isPushSupported", "push.showPrompt", "push.showNativePrompt", "push.showLocalNotification", "push.getNotificationPermission"].forEach(function (e) { var r = e.split("."), t = r.pop(); r.reduce(function (e, r) { return e[r] = e[r] || {} }, o)[t] = function () { o.queue.push([e, arguments]) } }), e.adbrix = o } }(window, document);
+</script>
+
+<script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="js/event1.js"></script>
+
+<body id="main">
+    <div id="main-side">
+        <div id="main-side-logo" onclick="listButton(this)" style="font-size: 30px;">Web_SDK</div>
+        <ul class="menu-side-list">
+            <li onclick="listButton(this)" id="1">유저 이벤트</li>
+            <li onclick="listButton(this)" id="2">커스텀 이벤트</li>
+            <li onclick="listButton(this)" id="3">공통(일반) 이벤트</li>
+            <li onclick="listButton(this)" id="4">결제하기 이벤트</li>
+            <li onclick="listButton(this)" id="5">커머스 이벤트</li>
+            <li onclick="listButton(this)" id="6">게임 이벤트</li>
+            <li onclick="listButton(this)" id="7">패치 API</li>
+            <li onclick="listButton(this)" id="8">알림 설정</li>
+        </ul>
+    </div>
+    <div id="main-container" style="margin-left: 121.195px;">
+        <div id="main-container-title">Web_SDK
+            테스트하기 위한 페이지
+        </div>
+        <div id="event-title" style="width: 545.398px;">
+            <div class="event-name">Event Name</div>
+            <div class="lain">|</div>
+            <div class="event-name">Event Value</div>
+        </div>
+        <div id="container-event1" class="container-view">
+            <div class="eventClass" style="width: 545.398px;">
+                <p class="keyname">Log_in : </p>
+                <input type="text" id="loginInput" class="event-Input" value="adbrix">
+                <button id="keyapply" onclick="login()">로그인</button>
+                <button id="keyapply" onclick="logout()">로그아웃</button>
+            </div>
+            <div class="eventClass" style="width: 545.398px;">
+                <p class="keyname">Age : </p>
+                <input type="number" id="userProperty_AgeInput" class="event-Input" min="1" value="30">
+                <p class="keyname">Gender : </p>
+                <div class="event-Input event_radio">
+                    <input type="radio" id="userProperty_Male" name="userProperty_Gender" value="male" checked="">
+                    <label for="userProperty_Male">Male</label>
+                    <input type="radio" id="userProperty_Female" name="userProperty_Gender" value="female">
+                    <label for="userProperty_Female">Female</label>
+                    <input type="radio" id="userProperty_Female" name="userProperty_Gender" value=0>
+                    <label for="userProperty_Female">0</label>
+                    <input type="radio" id="userProperty_Female" name="userProperty_Gender" value=1>
+                    <label for="userProperty_Female">1</label>
+                </div>
+                <p class="keyname">User_Nick : </p>
+                <input type="text" id="userProperty_UsernickInput" class="event-Input" value="william">
+                <p class="keyname">Place : </p>
+                <input type="text" id="userProperty_PlaceInput" class="event-Input" value="123">
+                <p class="keyname">Height : </p>
+                <input type="number" id="userProperty_HeightInput" class="event-Input" min="1" value="170">
+                <p class="keyname">Married : </p>
+                <div class="event-Input event_radio">
+                    <input type="radio" id="userProperty_True" name="userProperty_Married" value="true" checked="">
+                    <label for="userProperty_True">True</label>
+                    <input type="radio" id="userProperty_False" name="userProperty_Married" value="false">
+                    <label for="userProperty_False">False</label>
+                </div>
+                <p class="keyname">phoneNumber : </p>
+                <input type="text" id="phoneNumberInput" class="event-Input">
+                <p class="keyname">kakaoId : </p>
+                <input type="text" id="kakaoId" class="event-Input" max="10">
+                <button id="keyapply" onclick="phoneNumber()">번호</button>
+                <button id="keyapply" onclick="kakaoId()">카카오</button>
+                <button id="keyapply" onclick="userProperty()">유저정보</button>
+            </div>
+        </div>
+
+        <div id="container-event2" class="container-view">
+            <div class="eventClass" style="width: 545.398px;">
+                <p class="keyname">customKey : </p>
+                <input type="text" id="custom_KeyInput" class="event-Input">
+                <p class="keyname">customValue : </p>
+                <input type="text" id="custom_ValueInput" class="event-Input">
+            </div>
+            <div class="eventClass" style="width: 545.398px;">
+                <button id="keyapply" onclick="customEvent()">커스텀</button>
+            </div>
+        </div>
+
+        <div id="container-event3" class="container-view">
+            <div class="eventClass" style="width: 545.398px;">
+                <p class="keyname">SignChannel : </p>
+                <form id="userRegister_SignChannel" class="event-Input">
+                    <select name="SignChannel" id="SignChannel" class="selectClass">
+                        <option value="Kakao">Kakao</option>
+                        <option value="Naver">Naver</option>
+                        <option value="Line">Line</option>
+                        <option value="Google">Google</option>
+                        <option value="Facebook">Facebook</option>
+                        <option value="Twitter">Twitter</option>
+                        <option value="whatsApp">whatsApp</option>
+                        <option value="QQ">QQ</option>
+                        <option value="UserId">UserId</option>
+                        <option value="ETC">ETC</option>
+                        <option value="SkTid">SkTid</option>
+                        <option value="AppleId">AppleId</option>
+                    </select>
+                </form>
+                <!-- <input type="text" id="userRegister_SignChannel" class="event-Input"> -->
+                <p class="keyname">Married : </p>
+                <div class="event-Input event_radio">
+                    <input type="radio" id="userRegister_true" name="userRegister_Married" value="true" checked="">
+                    <label for="true">True</label>
+                    <input type="radio" id="userRegister_false" name="userRegister_Married" value="false">
+                    <label for="false">False</label>
+                </div>
+                <p class="keyname">Age : </p>
+                <input type="number" id="userRegister_AgeInput" class="event-Input" min="1">
+                <p class="keyname">Gender : </p>
+                <div class="event-Input event_radio">
+                    <input type="radio" id="userRegister_Male" name="userRegister_Gender" value="male" checked="">
+                    <label for="userRegister_Male">Male</label>
+                    <input type="radio" id="userRegister_Female" name="userRegister_Gender" value="female">
+                    <label for="userRegister_Female">Female</label>
+                </div>
+                <p class="keyname">Credit : </p>
+                <input type="number" id="usingCredit_CreditInput" class="event-Input" min="1">
+                <button id="keyapply" onclick="signUp()">회원가입</button>
+                <button id="keyapply" onclick="userInvite()">사용자 초대</button>
+                <button id="keyapply" onclick="usingCredit()">크레딧 사용</button>
+            </div>
+        </div>
+
+        <div id="container-event4" class="container-view">
+            <div class="eventClass" style="width: 545.398px;">
+                <p class="keyname">Order ID : </p>
+                <input type="text" id="purchase_orderIDInput" class="event-Input" value="123">
+                <p class="keyname">OrderSales : </p>
+                <input type="number" id="purchase_orderSalesInput" class="event-Input" value="123">
+                <p class="keyname">Product ID : </p>
+                <input type="text" id="purchase_productIDInput" class="event-Input" value="123">
+                <p class="keyname">Product Name : </p>
+                <input type="text" id="purchase_productNameInput" class="event-Input" value="123">
+                <p class="keyname">Price : </p>
+                <input type="number" id="purchase_priceInput" class="event-Input" value="123">
+                <p class="keyname">Quantity : </p>
+                <input type="number" id="purchase_quantityInput" class="event-Input" value="123">
+                <p class="keyname">Discount : </p>
+                <input type="number" id="purchase_discountInput" class="event-Input" value="123">
+                <p class="keyname">CurrencyEnum : </p>
+                <form id="userRegister_currencyEnum" class="event-Input">
+                    <select name="currencyEnum" id="currencyEnum" class="selectClass">
+                        <option value="KRW">KRW</option>
+                        <option value="USD">USD</option>
+                        <option value="JPY">JPY</option>
+                        <option value="EUR">EUR</option>
+                        <option value="GBP">GBP</option>
+                        <option value="CNY">CNY</option>
+                        <option value="TWD">TWD</option>
+                        <option value="HKD">HKD</option>
+                        <option value="IDR">IDR</option>
+                        <option value="INR">INR</option>
+                        <option value="RUB">RUB</option>
+                        <option value="THB">THB</option>
+                        <option value="VND">VND</option>
+                        <option value="MYR">MYR</option>
+                    </select>
+                </form>
+                <p class="keyname">Delivery : </p>
+                <input type="number" id="purchase_deliveryInput" class="event-Input" value="123">
+                <p class="keyname">PaymentEnum : </p>
+                <form id="userRegister_paymentEnum" class="event-Input">
+                    <select name="paymentEnum" id="paymentEnum" class="selectClass">
+                        <option value="CreditCard">CreditCard</option>
+                        <option value="BankTransfer">BankTransfer</option>
+                        <option value="MobilePayment">MobilePayment</option>
+                        <option value="ETC">ETC</option>
+                    </select>
+                </form>
+                <button id="keyapply" onclick="purchase()">결제하기</button>
+                <button id="keyapply" onclick="addToCart()">addtoCart</button>
+                <button id="keyapply" onclick="viewList()">리스트</button>
+                <button id="keyapply" onclick="addToWishList()">addtoWishList</button>
+                <button id="keyapply" onclick="share()">공유하기</button>
+            </div>
+        </div>
+
+        <div id="container-event5" class="container-view">
+
+            <div class="eventClass" style="width: 545.398px;">
+                <p class="keyname">Size : </p>
+                <input type="number" id="commerce_size" class="event-Input" value="25">
+                <p class="keyname">Color : </p>
+                <input type="text" id="commerce_color" class="event-Input" value="blue">
+                <p class="keyname">VIP : </p>
+                <div class="event-Input event_radio">
+                    <input type="radio" id="commerce_VIP_true" name="commerce_VIP" value="true" checked="">
+                    <label for="commerce_VIP_true">True</label>
+                    <input type="radio" id="commerce_VIP_false" name="commerce_VIP" value="false">
+                    <label for="commerce_VIP_false">False</label>
+                </div>
+                <p class="keyname">Grade : </p>
+                <input type="text" id="commerce_grade" class="event-Input" value="vip">
+                <p class="keyname">Howmany_buy : </p>
+                <input type="number" id="commerce_howmany_buy" class="event-Input" value="36">
+                <p class="keyname">Product ID : </p>
+                <input type="text" id="commerce_productIDInput" class="event-Input" value="456">
+                <p class="keyname">Product Name : </p>
+                <input type="text" id="commerce_productNameInput" class="event-Input" value="456">
+                <p class="keyname">Price : </p>
+                <input type="number" id="commerce_priceInput" class="event-Input" value="456">
+                <p class="keyname">Quantity : </p>
+                <input type="number" id="commerce_quantityInput" class="event-Input" value="456">
+                <p class="keyname">Discount : </p>
+                <input type="number" id="commerce_discountInput" class="event-Input" value="456">
+                <p class="keyname">CurrencyEnum : </p>
+                <form id="userRegister_currencyEnum" class="event-Input">
+                    <select name="commerce_currencyEnum" id="commerce_currencyEnum" class="selectClass">
+                        <option value="KRW">KRW</option>
+                        <option value="USD">USD</option>
+                        <option value="JPY">JPY</option>
+                        <option value="EUR">EUR</option>
+                        <option value="GBP">GBP</option>
+                        <option value="CNY">CNY</option>
+                        <option value="TWD">TWD</option>
+                        <option value="HKD">HKD</option>
+                        <option value="IDR">IDR</option>
+                        <option value="INR">INR</option>
+                        <option value="RUB">RUB</option>
+                        <option value="THB">THB</option>
+                        <option value="VND">VND</option>
+                        <option value="MYR">MYR</option>
+                    </select>
+                </form>
+                <p class="keyname">Delivery : </p>
+                <input type="number" id="commerce_deliveryInput" class="event-Input" value="456">
+                <p class="keyname">PaymentEnum : </p>
+                <form id="userRegister_commerce_paymentEnum" class="event-Input">
+                    <select name="commerce_paymentEnum" id="commerce_paymentEnum" class="selectClass">
+                        <option value="CreditCard">CreditCard</option>
+                        <option value="BankTransfer">BankTransfer</option>
+                        <option value="MobilePayment">MobilePayment</option>
+                        <option value="ETC">ETC</option>
+                    </select>
+                </form>
+                <p class="keyname">SignChannel : </p>
+                <form id="userRegister_commerce__signChannel" class="event-Input">
+                    <select name="commerce_signChannel" id="commerce_signChannel" class="selectClass">
+                        <option value="Facebook">Facebook</option>
+                        <option value="KakaoTalk">KakaoTalk</option>
+                        <option value="KakaoStory">KakaoStory</option>
+                        <option value="Line">Line</option>
+                        <option value="whatsApp">whatsApp</option>
+                        <option value="QQ">QQ</option>
+                        <option value="WeChat">WeChat</option>
+                        <option value="SMS">SMS</option>
+                        <option value="Email">Email</option>
+                        <option value="copyUrl">copyUrl</option>
+                        <option value="ETC">ETC</option>
+                    </select>
+                </form>
+                <button id="keyapply" onclick="category()">카테고리 진입</button>
+                <button id="keyapply" onclick="productDetail()" content-type="text/plain">상품 상세보기</button>
+                <button id="keyapply" onclick="commerce_addToCart()" accept="image/*">addtoCart</button>
+                <button id="keyapply" onclick="commerce_addToWishList()">addtoWishList</button>
+                <button id="keyapply" onclick="reviewOrder()">주문 확인</button>
+                <button id="keyapply" onclick="refundOrder()">주문 취소</button>
+                <button id="keyapply" onclick="searchProduct()">상품 검색</button>
+                <button id="keyapply" onclick="shareProduct()">상품 공유</button>
+                <button id="keyapply" onclick="listViewProducts()">상품 목록 조회</button>
+                <button id="keyapply" onclick="cartViewProducts()">cartView</button>
+                <button id="keyapply" onclick="paymentInfoAdded()">결제 정보</button>
+            </div>
+        </div>
+
+        <div id="container-event6" class="container-view">
+            <div class="eventClass" style="width: 545.398px;">
+                <p class="keyname">Grade : </p>
+                <input type="text" id="game_grade" class="event-Input" value="vip">
+                <p class="keyname">Howmany_buy : </p>
+                <input type="number" id="game_howmany_buy" class="event-Input" value="36">
+                <p class="keyname">Discount : </p>
+                <div class="event-Input event_radio">
+                    <input type="radio" id="game_discount_true" name="game_discount" value="true" checked="">
+                    <label for="game_discount_true">True</label>
+                    <input type="radio" id="game_discount_false" name="game_discount" value="false">
+                    <label for="game_discount_false">False</label>
+                </div>
+                <p class="keyname">Tutorial : </p>
+                <div class="event-Input event_radio">
+                    <input type="radio" id="game_discount_true" name="game_tutorial" value="true" checked="">
+                    <label for="game_tutorial_true">True</label>
+                    <input type="radio" id="game_discount_false" name="game_tutorial" value="false">
+                    <label for="game_tutorial_false">False</label>
+                </div>
+                <p class="keyname">StageCleared : </p>
+                <form id="game_stageCleared" class="event-Input">
+                    <select name="stageCleared" id="stageCleared" class="selectClass">
+                        <option value="1-1">1-1</option>
+                        <option value="1-2">1-2</option>
+                        <option value="2-1">2-1</option>
+                        <option value="2-2">2-2</option>
+                    </select>
+                </form>
+                <p class="keyname">LevelAchieved : </p>
+                <input type="text" id="game_levelAchieved" class="event-Input" value="1">
+
+                <button id="keyapply" onclick="tutorialComplete()">튜토리얼 완료</button>
+                <button id="keyapply" onclick="characterCreated()">캐릭터 생성</button>
+                <button id="keyapply" onclick="stageCleared()">스테이지 완료</button>
+                <button id="keyapply" onclick="levelAchieved()">레벨 달성</button>
+            </div>
+        </div>
+
+        <div id="container-event7" class="container-view">
+            <!-- <button id="keyapply" onclick="GoogelURL()">GoogelURL</button> -->
+            <!-- 딥링크 주소 : <input type="url" name="url" id="url" placeholder="https://example.com" pattern="https://.*" size="30" required> -->
+            <!-- <button id="urlload" onclick="urlLoad()">이동</button> -->
+            <!-- <a href="http://william.ap2-qa.dfn.link/api/v1/click/j2n41Cq9KUK8WbxYVo10GQ?cb_1={cb_1}&abx_tracker_id=j2n41Cq9KUK8WbxYVo10GQ" -->
+            <!-- id="urlhref">이동</a> -->
+            <!-- <button onclick="window.location.href='http://william.ap2-qa.dfn.link/api/v1/click/j2n41Cq9KUK8WbxYVo10GQ?cb_1={cb_1}&abx_tracker_id=j2n41Cq9KUK8WbxYVo10GQ'">버튼 텍스트</button> -->
+            <!-- </form> -->
+            <div id="inWebMessage">
+                <button id="keyapply" onclick="fetchInWebMessage()">fetchInWebMessage</button>
+                <button id="keyapply" onclick="getAllInWebMessages()">getAllInWebMessages</button>
+                <p class="keyname">openInWebMessageByCampaignId : </p>
+                <input type="text" id="openInWebMessage" name="openInWebMessageinput" class="event-Input">
+                <button id="keyapply" onclick="openInWebMessageByCampaignId()">openInWebMessageByCampaignId</button>
+            </div>
+        </div>
+        <div id="container-event8" class="container-view">
+            <div id="notification">
+                <div>
+                    <label class="switch">
+                        <input type="checkbox" id="informativeSwitch" onclick="informativeNotification()">
+                        <span class="slider round"></span>
+                    </label>
+                    <p>정보 알림 설정</p>
+                </div>
+                <div>
+                    <label class="switch">
+                        <input type="checkbox" id="marketingSwitch" onclick="marketingNotification()">
+                        <span class="slider round"></span>
+                    </label>
+                    <p>마켓팅 알림 설정</p>
+                </div>
+                <div>
+                    <label class="switch">
+                        <input type="checkbox" id="appSwitch" onclick="appNotification()">
+                        <span class="slider round"></span>
+                    </label>
+                    <p>앱 알림 설정</p>
+                </div>
+                <div>
+                    <label class="switch">
+                        <input type="checkbox" id="smsSwitch" onclick="smsNotification()">
+                        <span class="slider round"></span>
+                    </label>
+                    <p>SMS 알림 설정</p>
+                </div>
+                <div>
+                    <label class="switch">
+                        <input type="checkbox" id="kakaoSwitch" onclick="kakaoNotification()">
+                        <span class="slider round"></span>
+                    </label>
+                    <p>카카오 알림 설정</p>
+                </div>
+                <div>
+                    <label class="switch">
+                        <input type="checkbox" id="nightSwitch" onclick="nightNotification()">
+                        <span class="slider round"></span>
+                    </label>
+                    <p>야간 알림 설정</p>
+                </div>
+                <div>
+                    <label class="switch">
+                        <input type="checkbox" id="appNightSwitch" onclick="appNightNotification()">
+                        <span class="slider round"></span>
+                    </label>
+                    <p>앱 야간 알림 설정</p>
+                </div>
+                <div>
+                    <label class="switch">
+                        <input type="checkbox" id="smsNightSwitch" onclick="smsNightNotification()">
+                        <span class="slider round"></span>
+                    </label>
+                    <p>SMS 알림 설정</p>
+                </div>
+                <div>
+                    <label class="switch">
+                        <input type="checkbox" id="kakaoNightSwitch" onclick="kakaoNightNotification()">
+                        <span class="slider round"></span>
+                    </label>
+                    <p>카카오 알림 설정</p>
+                </div>
+            </div>
+        </div>
+        <div over>
+            <h1>로그</h1>
+            <div id="data"
+                style="background-color:darkslategrey; word-break:break-word; max-height:600px; overflow-y:scroll;">
+                <table>
+                    <tr v-for="(log,i) in logs" style="margin-bottom:5px;color:white;font-family:Consolas">
+                        <td
+                            style="text-align:right;width:50px;vertical-align:top; padding-right:10px;color:greenyellow;">
+                            {{i}}
+                        </td>
+                        <td>{{log}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    // 상용서버 init
+        // transport: 'BEACON' | 'XHR' | 'IMAGE' // 셋중 하나 사용
+        window.adbrix.init({
+            // appkey: 'RruMWZd2WkOnGtPSltICMw',
+            // webSecretkey: 'GitraCMvtEKSsAehZzueAw',
+            appkey: 'cAVuvs0NME6CYykRMb0Ecw',
+            webSecretkey: 'kKtoq4zZME2bcA9Lnreryg',
+            isOptOut: true, //json의 optout 상태 확인
+            isExecPageViewEvent: true, // pageview 이벤트 호출 확인
+            shareSubdomainCookie: true, // 쿠키값 저장
+            isIncludeReferrer: true, // 추가 리퍼러값 확인
+            isIncludeUtm: true, // utm 광고를 추적합니다.
+            isIncludeGclid: true, // gclid를 추적합니다.
+            isIncludeNaver: true, // naver 광고를 추적합니다.
+            isIncludeFbclid: true, // 페이스북에서 진입시 fbclid 파람 확인
+
+            push: {
+                enable: true,
+                serviceWorkerOptions: {
+                    file_name: "service-worker.js",
+                    file_path: "/",
+                    scope: "/"
+                },
+            },
+            inWebMessage: {
+                enable: true,
+                open_in_new_window: true,
+                fetch_listener: function (message) {
+                    console.log('fetch_listener ' + message);
+                },
+                click_listener: function (actionId, actionType, actionArg, isClosed) {
+                    console.log('click_listener ' + actionId + actionType + actionArg + isClosed);
+                },
+                zIndex: 99999,
+            },
+            traceLevel: 3,
+            traceListener: function (message) {
+                console.log(message);
+                loggingQueue.push(message);
+                if (logElement) {
+                    while (loggingQueue.length != 0) {
+                        sendDataToLogging(loggingQueue.pop());
+                    }
+                }
+            },
+        });
+    adbrix.onInitialized(() => {
+        console.log("ONInit -- 11");
+
+            const product = adbrix.commerceAttr.product('test_product_id', '상품명', 1000, 5, 200, 'KRW', adbrix.commerceAttr.categories('게임', '소셜', '커머스', '여성', '육아'), { 'test': 'test', "test1": null, "test2": "https://web-sdk-prod-sec-dir.public.sre.dfinery.io/", "test3": "https://web-sdk-prod-sec-dir.public.sre.dfinery.io/", "test4": "https://web-sdk-prod-sec-dir.public.sre.dfinery.io/", "test5": "https://web-sdk-prod-sec-dir.public.sre.dfinery.io/", "test6": "https://web-sdk-prod-sec-dir.public.sre.dfinery.io/", "test7": "https://web-sdk-prod-sec-dir.public.sre.dfinery.io/", "test8": "https://web-sdk-prod-sec-dir.public.sre.dfinery.io/" });
+
+            let products = [];
+            products.push(product);
+
+            adbrix.commerce.productView(product, { 'test': 'https://web-sdk-prod-sec-dir.public.sre.dfinery.io/', "test1": null, "test2": "https://web-sdk-prod-sec-dir.public.sre.dfinery.io/", "test3": "https://web-sdk-prod-sec-dir.public.sre.dfinery.io/", "test4": "https://web-sdk-prod-sec-dir.public.sre.dfinery.io/", "test5": "https://web-sdk-prod-sec-dir.public.sre.dfinery.io/", "test6": "https://web-sdk-prod-sec-dir.public.sre.dfinery.io/", "test7": "https://web-sdk-prod-sec-dir.public.sre.dfinery.io/", "test8": "https://web-sdk-prod-sec-dir.public.sre.dfinery.io/" });
+
+        });
+        console.log("ONInit -- 22");
+</script>
+</html>
