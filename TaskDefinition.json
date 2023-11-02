@@ -1,0 +1,35 @@
+{
+    "containerDefinitions": [
+      {
+        "cpu": 0,
+        "environment": [
+          {
+            "name": "DFN_APP_KEY",
+            "value": "%DFN_APP_KEY%"
+          },
+          {
+            "name": "DFN_SECRET_KEY",
+            "value": "%DFN_SECRET_KEY%"
+          }
+        ],
+        "mountPoints": [],
+        "memoryReservation": 128,
+        "portMappings": [
+          {
+            "hostPort": 0,
+            "containerPort": 80
+          }
+        ],
+        "image": "373464800694.dkr.ecr.%AWS_REGION%.amazonaws.com/dfn/sre/app/web_sdk:%VERSION%",
+        "essential": true,
+        "name": "%CONTAINER_NAME%"
+      }
+    ],
+    "placementConstraints": [
+  
+    ],
+    "executionRoleArn": "arn:aws:iam::373464800694:role/ecsTaskExecutionRole",
+    "taskRoleArn": "arn:aws:iam::373464800694:role/ecsTaskExecutionRole",
+    "family": "%TASK_DEF_FAMILY_NAME%"
+  }
+  
