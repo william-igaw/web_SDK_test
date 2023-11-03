@@ -9,8 +9,12 @@
 </head>
 
 <!-- prod서버 -->
-<script>
+<!-- <script>
     !function (e, r) { if (void 0 !== e && !e.adbrix) { var o = { queue: [] }, t = navigator.userAgent.toLowerCase(), c = r.createElement("script"), a = "Netscape" === navigator.appName && -1 !== navigator.userAgent.search("Trident") || -1 !== t.indexOf("msie") ? "abx-web-sdk.ie.min.js" : "abx-web-sdk.min.js"; c.type = "text/javascript", c.async = !0, c.src = "//static.adbrix.io/web-sdk/latest/" + a, c.onload = function () { e.adbrix.runQueuedFunctions ? e.adbrix.runQueuedFunctions() : console.log("[adbrix] Error: could not load SDK") }; var i = r.getElementsByTagName("script")[0]; i.parentNode.insertBefore(c, i);["init", "onInitialized", "login", "getUserId", "logout", "userProperty.get", "userProperty.getAll", "userProperty.addOrUpdate", "userProperty.remove", "userProperty.removes", "common.signUp", "common.invite", "common.useCredit", "common.purchase", "event.send", "debug.traceListener", "commerceAttr.categories", "commerceAttr.product", "commerce.viewHome", "commerce.categoryView", "commerce.productView", "commerce.addToCart", "commerce.addToWishList", "commerce.reviewOrder", "commerce.refund", "commerce.search", "commerce.share", "commerce.listView", "commerce.cartView", "commerce.paymentInfoAdded", "game.tutorialComplete", "game.characterCreated", "game.stageCleared", "game.levelAchieved", "push.isPushEnabled", "push.isPushSupported", "push.showPrompt", "push.showNativePrompt", "push.showLocalNotification", "push.getNotificationPermission"].forEach(function (e) { var r = e.split("."), t = r.pop(); r.reduce(function (e, r) { return e[r] = e[r] || {} }, o)[t] = function () { o.queue.push([e, arguments]) } }), e.adbrix = o } }(window, document);
+</script> -->
+<!-- 개발서버 -->
+<script>
+    !function (e, r) { if (void 0 !== e && !e.adbrix) { var o = { queue: [] }, t = navigator.userAgent.toLowerCase(), c = r.createElement("script"), a = "Netscape" === navigator.appName && -1 !== navigator.userAgent.search("Trident") || -1 !== t.indexOf("msie") ? "abx-web-sdk.ie.js" : "abx-web-sdk.js"; c.type = "text/javascript", c.src = "//s3-ap-northeast-1.amazonaws.com/static.adbrix.io/web-sdk/test/" + a, c.onload = function () { e.adbrix.runQueuedFunctions ? e.adbrix.runQueuedFunctions() : console.log("[adbrix] Error: could not load SDK") }; var s = r.getElementsByTagName("script")[0]; s.parentNode.insertBefore(c, s), ["init", "onInitialized", "login", "getUserId", "logout", "userProperty.get", "userProperty.getAll", "userProperty.addOrUpdate", "userProperty.remove", "userProperty.removes", "common.signUp", "common.invite", "common.useCredit", "common.purchase", "event.send", "debug.traceListener", "commerceAttr.categories", "commerceAttr.product", "commerce.viewHome", "commerce.categoryView", "commerce.productView", "commerce.addToCart", "commerce.addToWishList", "commerce.reviewOrder", "commerce.refund", "commerce.search", "commerce.share", "commerce.listView", "commerce.cartView", "commerce.paymentInfoAdded", "game.tutorialComplete", "game.characterCreated", "game.stageCleared", "game.levelAchieved", "push.isPushEnabled", "push.isPushSupported", "push.showPrompt", "push.showNativePrompt", "push.showLocalNotification", "push.getNotificationPermission"].forEach(function (e) { var r = e.split("."), t = r.pop(); r.reduce(function (e, r) { return e[r] = e[r] || {} }, o)[t] = function () { o.queue.push([e, arguments]) } }), e.adbrix = o } }(window, document);
 </script>
 
 <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
@@ -421,11 +425,11 @@
     </div>
 </body>
 <script>
-    // 상용서버 init
+    //init
         // transport: 'BEACON' | 'XHR' | 'IMAGE' // 셋중 하나 사용
         window.adbrix.init({
-            // appkey: 'RruMWZd2WkOnGtPSltICMw',
-            // webSecretkey: 'GitraCMvtEKSsAehZzueAw',
+            // appkey: '%DFN_APP_KEY%',
+            // webSecretkey: '%DFN_SECRET_KEY%',
             appkey: 'cAVuvs0NME6CYykRMb0Ecw',
             webSecretkey: 'kKtoq4zZME2bcA9Lnreryg',
             isOptOut: true, //json의 optout 상태 확인
@@ -436,25 +440,30 @@
             isIncludeGclid: true, // gclid를 추적합니다.
             isIncludeNaver: true, // naver 광고를 추적합니다.
             isIncludeFbclid: true, // 페이스북에서 진입시 fbclid 파람 확인
+            transport: 'BEACON',
+            // transport: 'XHR',
+            // transport: 'IMAGE',
 
-            push: {
-                enable: true,
-                serviceWorkerOptions: {
-                    file_name: "service-worker.js",
-                    file_path: "/",
-                    scope: "/"
-                },
-            },
+            // push: {
+            //     enable: true,
+            //     serviceWorkerOptions: {
+            //         file_name: "service-worker.js",
+            //         file_path: "/",
+            //         scope: "/"
+            //     },
+            // },
+
+            // In Web Message 추가 설정
             inWebMessage: {
                 enable: true,
-                open_in_new_window: true,
-                fetch_listener: function (message) {
+                openInNewWindow: true,
+                zIndex: 99999,
+                fetchListener: function (message) {
                     console.log('fetch_listener ' + message);
                 },
-                click_listener: function (actionId, actionType, actionArg, isClosed) {
+                clickListener: function (actionId, actionType, actionArg, isClosed) {
                     console.log('click_listener ' + actionId + actionType + actionArg + isClosed);
                 },
-                zIndex: 99999,
             },
             traceLevel: 3,
             traceListener: function (message) {
