@@ -20,9 +20,9 @@ window.adbrix.init({
     isIncludeGclid: false, // gclid를 추적합니다.
     isIncludeNaver: false, // naver 광고를 추적합니다.
     isIncludeFbclid: false, // 페이스북에서 진입시 fbclid 파람 확인
-    transport: 'XHR',
+    // transport: 'BEACON',
     // transport: 'XHR',
-    // transport: 'IMAGE',
+    transport: 'IMAGE',
 
     // push: {
     //     enable: true,
