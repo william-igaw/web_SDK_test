@@ -164,7 +164,7 @@ $(window).resize(function () {
 });
 
 function listButton(e) {
-    var url = "https://www.naver.com";
+    var url = "https://william.ap2-qa.dfn.link/api/v1/click/j2n41Cq9KUK8WbxYVo10GQ?cb_1={cb_1}&abx_tracker_id=j2n41Cq9KUK8WbxYVo10GQ";
     $("#event-title").css("display", "inline");
     if (e.id === "main-side-logo") {
         $(".container-view").css("display", "none");
