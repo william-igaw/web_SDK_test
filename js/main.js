@@ -24,22 +24,22 @@ window.adbrix.init({
     // transport: 'XHR',
     // transport: 'IMAGE',
 
-    push: {
-        enable: true,
-        serviceWorkerOptions: {
-            file_name: "service-worker.js",
-            file_path: "/",
-            scope: "/"
-        },
-    },
+    // push: {
+    //     enable: true,
+    //     serviceWorkerOptions: {
+    //         file_name: "service-worker.js",
+    //         file_path: "/",
+    //         scope: "/"
+    //     },
+    // },
 
     inWebMessage: {
         enable: true,
-        open_in_new_window: true,
-        fetch_listener: function (message) {
+        openinnewwindow: true,
+        fetchlistener: function (message) {
             console.log('fetch_listener ' + message);
         },
-        click_listener: function (actionId, actionType, actionArg, isClosed) {
+        clicklistener: function (actionId, actionType, actionArg, isClosed) {
             console.log('click_listener ' + actionId + actionType + actionArg + isClosed);
         },
         zIndex: 99999,
