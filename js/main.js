@@ -12,7 +12,7 @@ window.adbrix.init({
     // webSecretkey: '%DFN_SECRET_KEY%',
     appkey: 'cAVuvs0NME6CYykRMb0Ecw',
     webSecretkey: 'kKtoq4zZME2bcA9Lnreryg',
-    isOptOut: true, //json의 optout 상태 확인
+    isOptOut: false, //json의 optout 상태 확인
     isExecPageViewEvent: true, // pageview 이벤트 호출 확인
     shareSubdomainCookie: true, // 쿠키값 저장
     isIncludeReferrer: true, // 추가 리퍼러값 확인
