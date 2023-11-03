@@ -13,13 +13,13 @@ window.adbrix.init({
     appkey: 'cAVuvs0NME6CYykRMb0Ecw',
     webSecretkey: 'kKtoq4zZME2bcA9Lnreryg',
     isOptOut: true, //json의 optout 상태 확인
-    isExecPageViewEvent: false, // pageview 이벤트 호출 확인
-    shareSubdomainCookie: false, // 쿠키값 저장
-    isIncludeReferrer: false, // 추가 리퍼러값 확인
-    isIncludeUtm: false, // utm 광고를 추적합니다.
-    isIncludeGclid: false, // gclid를 추적합니다.
-    isIncludeNaver: false, // naver 광고를 추적합니다.
-    isIncludeFbclid: false, // 페이스북에서 진입시 fbclid 파람 확인
+    isExecPageViewEvent: true, // pageview 이벤트 호출 확인
+    shareSubdomainCookie: true, // 쿠키값 저장
+    isIncludeReferrer: true, // 추가 리퍼러값 확인
+    isIncludeUtm: true, // utm 광고를 추적합니다.
+    isIncludeGclid: true, // gclid를 추적합니다.
+    isIncludeNaver: true, // naver 광고를 추적합니다.
+    isIncludeFbclid: true, // 페이스북에서 진입시 fbclid 파람 확인
     transport: 'BEACON',
     // transport: 'XHR',
     // transport: 'IMAGE',
